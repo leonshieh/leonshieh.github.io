@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 人间值得</title>
+  <title>人间值得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="UNITY3D中实现按键控制物体移动主要思想是通过对物体施加矢量来使物体移动，代码如下： 1234567891011121314151617181920using UnityEngine;using System.Collections;public class NewBehaviourScript : MonoBehaviour &amp;#123;    private Rigidbody rd;//">
+<meta property="og:type" content="article">
 <meta property="og:title" content="人间值得">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/07/02/UNITY3D中实现按键控制物体移动/index.html">
 <meta property="og:site_name" content="人间值得">
+<meta property="og:description" content="UNITY3D中实现按键控制物体移动主要思想是通过对物体施加矢量来使物体移动，代码如下： 1234567891011121314151617181920using UnityEngine;using System.Collections;public class NewBehaviourScript : MonoBehaviour &amp;#123;    private Rigidbody rd;//">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUYAAAGXCAIAAABA124tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAGlkSURBVHhe7b0HXFVX1vcfJjP/eWYyfd555sn7PpkUk0wSC9Kl99577x2UDmJFAbsgClhABQEFQUBR001MJImjacbExBSTmIwm0URTJplM8//jrsPO4Tapcrmu7+d+jmuvvc8+5+6zf7tc713cYmdnFxgYGM4MBW2ClnmQYaYatwQEBHh4eLgxQ0GboGWg6gceeEBqKoaZCtzi7u4u9WJmKGiZoKCge++9V2oqhpkK3CL1Xw2gT8+bN2/JkiV5eXmhoaGS96YhLCzsrrvukpqKYaYCt7hqpqSk5Pjx468OcvLkyYqKCinv5gCSvvPOO6WmYpipgEZJFxYWSlJ+9VWUwyxN9k2laixMWNLM1EK9pH18fF544QXSsBIvvfRSeHi4VG6QQ4NI6YnnxlyLJc1MHEZGRtjYFhUV4Qhb8o6ZW1zUkZ+fLyn41VcfeOCB3/72t2KWBuXl5VI5GdCYZN0QbszlQkJCWNLMBAElOzo6wsARNjnHjnpJL126VJKvAiVJ19TUSOVkyDUGe9GiRR0dHZ2dnVlZWeTMzs5ub2/v7u6uqqoiD4phdOjq6mppaYmMjCSnr68v6u/p6YEzNjaWnF5eXqtWrUJtTU1NiYmJOFGA3ICAgC1btvT29uLo7+9PpyDLzc1tzZo1Bw4cIM8oCA4OZkkzNwDM1ZI1Zm5xVodcwEB1lpbKyYCEJEthFxQUeHt7p6amQtjkhJgjIiIgztLSUvKgGATv6elZXFy8detWcq5fv37u3LlQY0JCAgRMztWrV5eUlND/FUPw8Mgvt3HjRowgqGfx4sUbNmwgJwrgnrGDoOToYEkzN4YJlzSE19/fTwLGKh+S/sMf/tDY2Igk9tLYYUrlZChJmgxsR4W9ffv2urq6efPmQXvkEVnQKqZlsvft2wc/0dfXR07M5O7u7mQTyJUsxWBBdeK2cTo55QVGDZZDLGlmIoCGVZHytILVq1qkbEjaSQPy7bSc5cuXSyWGAglJlgYbEy/W3tXV1Tt27CCPyIIUsagmG5rE1Eq2AJLG6CAlFMgvQZKGgSNOJ6e8wKgJDAxkSTMTgSTioUh5MtLS0iTJtrTAlrxa0ShpgGvIP/c">
+<meta property="og:updated_time" content="2019-04-29T05:22:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="人间值得">
+<meta name="twitter:description" content="UNITY3D中实现按键控制物体移动主要思想是通过对物体施加矢量来使物体移动，代码如下： 1234567891011121314151617181920using UnityEngine;using System.Collections;public class NewBehaviourScript : MonoBehaviour &amp;#123;    private Rigidbody rd;//">
+<meta name="twitter:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUYAAAGXCAIAAABA124tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAGlkSURBVHhe7b0HXFVX1vcfJjP/eWYyfd555sn7PpkUk0wSC9Kl99577x2UDmJFAbsgClhABQEFQUBR001MJImjacbExBSTmIwm0URTJplM8//jrsPO4Tapcrmu7+d+jmuvvc8+5+6zf7tc713cYmdnFxgYGM4MBW2ClnmQYaYatwQEBHh4eLgxQ0GboGWg6gceeEBqKoaZCtzi7u4u9WJmKGiZoKCge++9V2oqhpkK3CL1Xw2gT8+bN2/JkiV5eXmhoaGS96YhLCzsrrvukpqKYaYCt7hqpqSk5Pjx468OcvLkyYqKCinv5gCSvvPOO6WmYpipgEZJFxYWSlJ+9VWUwyxN9k2laixMWNLM1EK9pH18fF544QXSsBIvvfRSeHi4VG6QQ4NI6YnnxlyLJc1MHEZGRtjYFhUV4Qhb8o6ZW1zUkZ+fLyn41VcfeOCB3/72t2KWBuXl5VI5GdCYZN0QbszlQkJCWNLMBAElOzo6wsARNjnHjnpJL126VJKvAiVJ19TUSOVkyDUGe9GiRR0dHZ2dnVlZWeTMzs5ub2/v7u6uqqoiD4phdOjq6mppaYmMjCSnr68v6u/p6YEzNjaWnF5eXqtWrUJtTU1NiYmJOFGA3ICAgC1btvT29uLo7+9PpyDLzc1tzZo1Bw4cIM8oCA4OZkkzNwDM1ZI1Zm5xVodcwEB1lpbKyYCEJEthFxQUeHt7p6amQtjkhJgjIiIgztLSUvKgGATv6elZXFy8detWcq5fv37u3LlQY0JCAgRMztWrV5eUlND/FUPw8Mgvt3HjRowgqGfx4sUbNmwgJwrgnrGDoOToYEkzN4YJlzSE19/fTwLGKh+S/sMf/tDY2Igk9tLYYUrlZChJmgxsR4W9ffv2urq6efPmQXvkEVnQKqZlsvft2wc/0dfXR07M5O7u7mQTyJUsxWBBdeK2cTo55QVGDZZDLGlmIoCGVZHytILVq1qkbEjaSQPy7bSc5cuXSyWGAglJlgYbEy/W3tXV1Tt27CCPyIIUsagmG5rE1Eq2AJLG6CAlFMgvQZKGgSNOJ6e8wKgJDAxkSTMTgSTioUh5MtLS0iTJtrTAlrxa0ShpgGvIP/c">
   
     <link rel="alternative" href="/atom.xml" title="人间值得" type="application/atom+xml">
   
@@ -150,148 +156,154 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-UNITY3D中实现按键控制物体移动" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="UNITY3D中实现按键控制物体移动"><a href="#UNITY3D中实现按键控制物体移动" class="headerlink" title="UNITY3D中实现按键控制物体移动"></a>UNITY3D中实现按键控制物体移动</h1><p>主要思想是通过对物体施加矢量来使物体移动，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line"></span><br><span class="line">public class NewBehaviourScript : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">    private Rigidbody rd;//定义刚体变量；</span><br><span class="line">    public int Force = 5;//定义力的大小来改变运动的速度；</span><br><span class="line">	// Use this for initialization</span><br><span class="line">	void Start () &#123;</span><br><span class="line"></span><br><span class="line">        rd = GetComponent&lt;Rigidbody&gt;();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	// Update is called once per frame</span><br><span class="line">	void Update () &#123;</span><br><span class="line">        float h = Input.GetAxis(&quot;Horizontal&quot;);//固定语句来获取键盘A,D控制左右移动；</span><br><span class="line">        float v = Input.GetAxis(&quot;Vertical&quot;);//获取键盘W,S控制前后移动；</span><br><span class="line">        rd.AddForce(new Vector3(h, 0, v) * Force);//对物体施加力的作用，定义了一个矢量；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUYAAAGXCAIAAABA124tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAGlkSURBVHhe7b0HXFVX1vcfJjP/eWYyfd555sn7PpkUk0wSC9Kl99577x2UDmJFAbsgClhABQEFQUBR001MJImjacbExBSTmIwm0URTJplM8//jrsPO4Tapcrmu7+d+jmuvvc8+5+6zf7tc713cYmdnFxgYGM4MBW2ClnmQYaYatwQEBHh4eLgxQ0GboGWg6gceeEBqKoaZCtzi7u4u9WJmKGiZoKCge++9V2oqhpkK3CL1Xw2gT8+bN2/JkiV5eXmhoaGS96YhLCzsrrvukpqKYaYCt7hqpqSk5Pjx468OcvLkyYqKCinv5gCSvvPOO6WmYpipgEZJFxYWSlJ+9VWUwyxN9k2laixMWNLM1EK9pH18fF544QXSsBIvvfRSeHi4VG6QQ4NI6YnnxlyLJc1MHEZGRtjYFhUV4Qhb8o6ZW1zUkZ+fLyn41VcfeOCB3/72t2KWBuXl5VI5GdCYZN0QbszlQkJCWNLMBAElOzo6wsARNjnHjnpJL126VJKvAiVJ19TUSOVkyDUGe9GiRR0dHZ2dnVlZWeTMzs5ub2/v7u6uqqoiD4phdOjq6mppaYmMjCSnr68v6u/p6YEzNjaWnF5eXqtWrUJtTU1NiYmJOFGA3ICAgC1btvT29uLo7+9PpyDLzc1tzZo1Bw4cIM8oCA4OZkkzNwDM1ZI1Zm5xVodcwEB1lpbKyYCEJEthFxQUeHt7p6amQtjkhJgjIiIgztLSUvKgGATv6elZXFy8detWcq5fv37u3LlQY0JCAgRMztWrV5eUlND/FUPw8Mgvt3HjRowgqGfx4sUbNmwgJwrgnrGDoOToYEkzN4YJlzSE19/fTwLGKh+S/sMf/tDY2Igk9tLYYUrlZChJmgxsR4W9ffv2urq6efPmQXvkEVnQKqZlsvft2wc/0dfXR07M5O7u7mQTyJUsxWBBdeK2cTo55QVGDZZDLGlmIoCGVZHytILVq1qkbEjaSQPy7bSc5cuXSyWGAglJlgYbEy/W3tXV1Tt27CCPyIIUsagmG5rE1Eq2AJLG6CAlFMgvQZKGgSNOJ6e8wKgJDAxkSTMTgSTioUh5MtLS0iTJtrTAlrxa0ShpgGvIP/c" alt="image"></p>
+<p>在加入了<code>rd.AddForce</code>命令后在脚本下会多出一个Force选项来直接调整力的大小。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/UNITY3D 中关于视角跟随的方法/" class="archive-article-date">
-  	<time datetime="2019-07-02T01:03:39.082Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/02/UNITY3D中实现按键控制物体移动/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/在Markdown文档中插入图片的方法/" class="archive-article-date">
-  	<time datetime="2019-07-02T01:03:39.081Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/UNITY3D消除物理抖动/" class="archive-article-date">
-  	<time datetime="2019-07-02T01:03:39.080Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2019/07/02/UNITY3D实例化出现的转换问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/02/UNITY3D关于2D图片的旋转问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/UNITY3D实例化出现的转换问题/" class="archive-article-date">
-  	<time datetime="2019-07-02T01:03:39.078Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/UNITY3D中实现按键控制物体移动/" class="archive-article-date">
-  	<time datetime="2019-07-02T01:03:39.077Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/UNITY3D关于2D图片的旋转问题/" class="archive-article-date">
-  	<time datetime="2019-07-02T01:02:56.100Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -314,8 +326,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

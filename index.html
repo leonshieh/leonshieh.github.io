@@ -152,27 +152,18 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-我的第一篇博文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-UNITY3D 中关于视角跟随的方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/01/我的第一篇博文/">我的第一篇博文</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/01/我的第一篇博文/" class="archive-article-date">
-  	<time datetime="2019-07-01T07:10:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p>参考文献</p>
+        <h1 id="UNITY3D-中关于视角跟随的方法"><a href="#UNITY3D-中关于视角跟随的方法" class="headerlink" title="UNITY3D 中关于视角跟随的方法"></a>UNITY3D 中关于视角跟随的方法</h1><h2 id="使用代码实现"><a href="#使用代码实现" class="headerlink" title="使用代码实现"></a>使用代码实现</h2><p>在main camera中添加脚本文件通过获取物体与视角的相对位置来实现视角的动态跟随，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line"></span><br><span class="line">public class FollowTarget : MonoBehaviour &#123;</span><br><span class="line">    public Transform playerTransform;//定义一个主角的视角位置；</span><br><span class="line">    private Vector3 offset;//定义一个视角与主角的差值向量；</span><br><span class="line">	// Use this for initialization</span><br><span class="line">	void Start () &#123;</span><br><span class="line"></span><br><span class="line">        offset = transform.position - playerTransform.position;//获得两者的差值；</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	// Update is called once per frame</span><br><span class="line">	void Update () &#123;</span><br><span class="line"></span><br><span class="line">        transform.position = playerTransform.position + offset;//得到视角的相对位置；</span><br><span class="line">        </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要将playerTransform拖拽到框中才能设置相对位移</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUsAAADTCAIAAACHl6ZTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAED0SURBVHhe7Z0JeFXVufd7sH7t/Wy1XGuVXq0DDigzAQIJmUlCEhIghAxAIAkJgQRCRoYQphBmCPMYJMwzhIBWO2oVRUUFxKFOaG2r9Wqrt73t/Xpv+9zvl/OubPbZZyAzOWH9nv0c3vWutdfeZ+31X8PJOS/feLSewMDAUaNGJWkcoU1oGdVGGo23Uafwbt260YlHjhw5bNiwCI0jtAktQ/vQStJkGo0XUafwBx98MD4+PjIyUnVqjSO0DO1DK0mTaTReRJ3C77vvvsTERNWd3UAXnz59+rx58/Lz88eMGaO8Nwy0D60kTabReBF1Cr/33nvpweHumTlz5ksvvXSxnvPnzy9evFjl3RjQPrSSNJlG40UohTMtq77sRFFRkVL2xYsUZg4X+4YSOe2jFa7xRq6h8OHDh587d04kbeG1115LSkpS5ep5oh6Vbn3a5lpa4ZrWo2/fvuyCi4uLecVW3hZCKTwhIWGoKwoKCpSgL17s1q1b586djTkcysvLVTkTSE5ZbULbXI720QrXtBIIOyQkBINXbHG2FErho0ePVn3Zkfnz5ys127EofN26daqcCbPksOfOnXv48OGjR4/m5OSIMzc399ChQydOnFizZo14KMZgcezYsb1796akpIgzNjaW+k+ePIkzNTVVnNHR0cuWLaO26urq9PR0TjQgd+TIkVu3bq2pqeF1xIgRcgpZERERK1asqK2tFU8ToH20wjVtADO5slqIqwoPc4VZz+A8h6tyJlCUsux2YWFhTExMVlYWOhcn2k5OTkars2fPFg/F0H9UVFRJScm2bdvEuXr16mnTpiHOtLQ09CzO5cuXz5w5U/5Gjf7xmC+3fv16BhTqKSsrW7t2rTgpwD2z3ZBk09AK17QNraVw1gaqLzuCDs+ePSt6ZoeAwu+4446qqiqS7MPZnapyJiwKF4OtrGHv3Llz06ZN06dPR4riMbKQLpO22MePH8cvnD59WpzM85GRkWIL5CrLPnZIndw2p4vTXKDJ0D5a4ZrWAEk7o/I8wtrWJSq7HqXwUaNGhbrBvBU3s2jRIlXCERSlLDc20zIL9crKyscff1w8RhbKZAUuNhJl4hXbAIUzWKiEHfMlROEYvHK6OM0FmgztoxWuaQ2Uph1ReSYmT56sFLx3L7byNgClcBa9qi" alt="image"></p>
+<p>另一种实现方法：</p>
+<p><a href="https://www.cnblogs.com/dongz888/p/4909819.html" target="_blank" rel="noopener">视角跟随</a></p>
 
       
 
@@ -185,7 +176,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/01/我的第一篇博文/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/02/UNITY3D 中关于视角跟随的方法/">展开全文 >></a>
         </p>
       
 
@@ -215,39 +206,43 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-在Markdown文档中插入图片的方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/01/hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-01T06:59:05.069Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h1 id="在Markdown文档中插入图片的方法"><a href="#在Markdown文档中插入图片的方法" class="headerlink" title="在Markdown文档中插入图片的方法"></a>在Markdown文档中插入图片的方法</h1><p>通过使用Data url来插入图片</p>
+<p>语法如下：</p>
+<p><code>![image][img_name]</code></p>
+<p><code>[img_name]:</code></p>
+<p>Data URI scheme是在RFC2397中定义的，目的是将一些小的数据，直接嵌入到网页中，从而不用再从外部文件载入。</p>
+<p>支持的格式有：</p>
+<ul>
+<li>文本数据</li>
+<li>HTML代码</li>
+<li>base64编码的HTML代码</li>
+<li>CSS代码</li>
+<li>base64编码的CSS代码</li>
+<li>Javascript代码</li>
+<li>base64编码的Javascript代码</li>
+<li>base64编码的gif图片数据</li>
+<li>base64编码的png图片数据</li>
+<li>base64编码的jpeg图片数据</li>
+</ul>
+<p>通过C#来制作一个将图片转换为data url的小程序。</p>
+<ol>
+<li><p>windows窗体应用程序</p>
+</li>
+<li><p>添加两个textbox，一个label，一个button</p>
+</li>
+<li><p>图片选择的textbox命名为textbox_saveDir </p>
+<p>button命名为button_browse</p>
+</li>
+<li><p>Path.GetExtension属于System.IO命名空间，需在开头声明</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">private void button_browse_Click(object sender, EventArgs e)</span><br><span class="line">&#123;</span><br><span class="line">    OpenFileDialog fbd = new OpenFileDialog();</span><br><span class="line">    fbd.Title = &quot;请选择一张图片：&quot;;</span><br><span class="line">    fbd.CheckFileExists = true;</span><br><span class="line">    fbd.FileName = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer);</span><br><span class="line">    if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)</span><br><span class="line">    &#123;</span><br><span class="line">        textBox_saveDir.Text = fbd.FileName;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            Image img = Image.FromFile(textBox_saveDir.Text, true);</span><br><span class="line">            System.IO.MemoryStream ms = new System.IO.MemoryStream();</span><br><span class="line">            System.Drawing.Imaging.ImageFormat fmt = 					             System.Drawing.Imaging.ImageFormat.Png;</span><br><span class="line">            string ext = Path.GetExtension(textBox_saveDir.Text);</span><br><span class="line">            switch (ext)</span><br><span class="line">            &#123;</span><br><span class="line">                case &quot;gif&quot;:</span><br><span class="line">                    fmt = System.Drawing.Imaging.ImageFormat.Gif;</span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">                    ext = &quot;png&quot;;</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            img.Save(ms, fmt);</span><br><span class="line">            textBox1.Text = &quot;&lt;img src=\&quot;data:image/&quot; + ext + &quot;;base64,&quot; + Convert.ToBase64String(ms.GetBuffer())</span><br><span class="line">                + &quot;\&quot; width=\&quot;&quot; + img.Width +&quot;\&quot; height=\&quot;&quot; + img.Height +&quot;\&quot; /&gt;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (Exception ex)</span><br><span class="line">        &#123;</span><br><span class="line">            textBox1.Text = &quot;错误：&quot; + ex.Message + &quot;\r\n堆栈：&quot; + ex.StackTrace;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
 
@@ -260,7 +255,222 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/01/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/02/在Markdown文档中插入图片的方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-UNITY3D消除物理抖动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="unity消除物理抖动"><a href="#unity消除物理抖动" class="headerlink" title="unity消除物理抖动"></a>unity消除物理抖动</h1><p>在用到刚体进行移动的时候，有力进行交互的时候，把代码放在固定物理帧，生命周期函数里面来运行，这样就不会发生抖动效果。</p>
+<p><strong>函数为</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">private void FixedUpadate</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/02/UNITY3D消除物理抖动/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-UNITY3D实例化出现的转换问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="unity实例化出现的转换问题"><a href="#unity实例化出现的转换问题" class="headerlink" title="unity实例化出现的转换问题"></a>unity实例化出现的转换问题</h2><p>在定义了方法后，实例化时出现了“无法将unity.object隐式转换为unity.gameobjec”t的错误提示</p>
+<p>原因是：</p>
+<p>The function <code>Instantiate</code> returns an <code>Object</code>. So your code for instantiating should be: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aa[i]=Instantiate(aaa,haha[i],transform.rotation) as GameObject;</span><br></pre></td></tr></table></figure>
+
+<p>or </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aa[i]=(GameObject)Instantiate(aaa,haha[i],transform.rotation);</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/02/UNITY3D实例化出现的转换问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-UNITY3D中实现按键控制物体移动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="UNITY3D中实现按键控制物体移动"><a href="#UNITY3D中实现按键控制物体移动" class="headerlink" title="UNITY3D中实现按键控制物体移动"></a>UNITY3D中实现按键控制物体移动</h1><p>主要思想是通过对物体施加矢量来使物体移动，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line"></span><br><span class="line">public class NewBehaviourScript : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">    private Rigidbody rd;//定义刚体变量；</span><br><span class="line">    public int Force = 5;//定义力的大小来改变运动的速度；</span><br><span class="line">	// Use this for initialization</span><br><span class="line">	void Start () &#123;</span><br><span class="line"></span><br><span class="line">        rd = GetComponent&lt;Rigidbody&gt;();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	// Update is called once per frame</span><br><span class="line">	void Update () &#123;</span><br><span class="line">        float h = Input.GetAxis(&quot;Horizontal&quot;);//固定语句来获取键盘A,D控制左右移动；</span><br><span class="line">        float v = Input.GetAxis(&quot;Vertical&quot;);//获取键盘W,S控制前后移动；</span><br><span class="line">        rd.AddForce(new Vector3(h, 0, v) * Force);//对物体施加力的作用，定义了一个矢量；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUYAAAGXCAIAAABA124tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAGlkSURBVHhe7b0HXFVX1vcfJjP/eWYyfd555sn7PpkUk0wSC9Kl99577x2UDmJFAbsgClhABQEFQUBR001MJImjacbExBSTmIwm0URTJplM8//jrsPO4Tapcrmu7+d+jmuvvc8+5+6zf7tc713cYmdnFxgYGM4MBW2ClnmQYaYatwQEBHh4eLgxQ0GboGWg6gceeEBqKoaZCtzi7u4u9WJmKGiZoKCge++9V2oqhpkK3CL1Xw2gT8+bN2/JkiV5eXmhoaGS96YhLCzsrrvukpqKYaYCt7hqpqSk5Pjx468OcvLkyYqKCinv5gCSvvPOO6WmYpipgEZJFxYWSlJ+9VWUwyxN9k2laixMWNLM1EK9pH18fF544QXSsBIvvfRSeHi4VG6QQ4NI6YnnxlyLJc1MHEZGRtjYFhUV4Qhb8o6ZW1zUkZ+fLyn41VcfeOCB3/72t2KWBuXl5VI5GdCYZN0QbszlQkJCWNLMBAElOzo6wsARNjnHjnpJL126VJKvAiVJ19TUSOVkyDUGe9GiRR0dHZ2dnVlZWeTMzs5ub2/v7u6uqqoiD4phdOjq6mppaYmMjCSnr68v6u/p6YEzNjaWnF5eXqtWrUJtTU1NiYmJOFGA3ICAgC1btvT29uLo7+9PpyDLzc1tzZo1Bw4cIM8oCA4OZkkzNwDM1ZI1Zm5xVodcwEB1lpbKyYCEJEthFxQUeHt7p6amQtjkhJgjIiIgztLSUvKgGATv6elZXFy8detWcq5fv37u3LlQY0JCAgRMztWrV5eUlND/FUPw8Mgvt3HjRowgqGfx4sUbNmwgJwrgnrGDoOToYEkzN4YJlzSE19/fTwLGKh+S/sMf/tDY2Igk9tLYYUrlZChJmgxsR4W9ffv2urq6efPmQXvkEVnQKqZlsvft2wc/0dfXR07M5O7u7mQTyJUsxWBBdeK2cTo55QVGDZZDLGlmIoCGVZHytILVq1qkbEjaSQPy7bSc5cuXSyWGAglJlgYbEy/W3tXV1Tt27CCPyIIUsagmG5rE1Eq2AJLG6CAlFMgvQZKGgSNOJ6e8wKgJDAxkSTMTgSTioUh5MtLS0iTJtrTAlrxa0ShpgGvIP/c" alt="image"></p>
+<p>在加入了<code>rd.AddForce</code>命令后在脚本下会多出一个Force选项来直接调整力的大小。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/02/UNITY3D中实现按键控制物体移动/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-UNITY3D关于2D图片的旋转问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="UNITY中关于2D图片的旋转问题"><a href="#UNITY中关于2D图片的旋转问题" class="headerlink" title="UNITY中关于2D图片的旋转问题"></a>UNITY中关于2D图片的旋转问题</h2><h2 id="第一种解决方案"><a href="#第一种解决方案" class="headerlink" title="第一种解决方案"></a>第一种解决方案</h2><p>使用多张贴图来达到旋转的目的，通过获取sprite render中的内容来添加旋转效果</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">private SpriteRenderer sr;</span><br><span class="line">public Sprite[] tankSprite;</span><br><span class="line">  private void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">       sr = GetComponent&lt;SpriteRenderer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">void Update () &#123;</span><br><span class="line">  float h = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">  transform.Translate(Vector3.right * h * moveSpeed * Time.deltaTime , Space.World);</span><br><span class="line">  if (h &lt; 0)//利用sprite renderer来切换贴图</span><br><span class="line">       &#123;</span><br><span class="line">           sr.sprite = tankSprite[3];</span><br><span class="line">       &#125;</span><br><span class="line">       else if (h &gt; 0)</span><br><span class="line">       &#123;</span><br><span class="line">           sr.sprite = tankSprite[1];</span><br><span class="line">       &#125;</span><br><span class="line">float v = Input.GetAxisRaw(&quot;Vertical&quot;);</span><br><span class="line">  transform.Translate(Vector3.up * v * moveSpeed * Time.deltaTime, Space.World);</span><br><span class="line">  if (v &lt; 0)</span><br><span class="line">       &#123;</span><br><span class="line">           sr.sprite = tankSprite[2];</span><br><span class="line">       &#125;</span><br><span class="line">       else if (v &gt; 0)</span><br><span class="line">       &#123;</span><br><span class="line">           sr.sprite = tankSprite[0];</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二种决解方案"><a href="#第二种决解方案" class="headerlink" title="第二种决解方案"></a>第二种决解方案</h2><p>通过旋转一张图片来达到旋转的目的主要利用的是transform.rotation语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> if (h&lt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.rotation= Quaternion.Euler(Vector3.forward*(90));</span><br><span class="line">        &#125;</span><br><span class="line">        else if (h&gt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.rotation = Quaternion.Euler(Vector3.forward * (-90));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">if (v &lt; 0)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.rotation= Quaternion.Euler(Vector3.forward *(180));</span><br><span class="line">        &#125;</span><br><span class="line">        else if (v &gt; 0)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.rotation=Quaternion.Euler(Vector3.forward);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>有必要说明的一点是</p>
+<p>transform.rotate中指定的角度是指每次旋转的角度，物体会一直以递增角度的方式来进行旋转，即每次增加固定角度，一直旋转</p>
+<p>transform.rotation中指定角度是指旋转<strong>到</strong>指定的角度，即旋转一次，并不会一直旋转。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/02/UNITY3D关于2D图片的旋转问题/">展开全文 >></a>
         </p>
       
 
